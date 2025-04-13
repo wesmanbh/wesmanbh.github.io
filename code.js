@@ -90,3 +90,77 @@ function updateLevelUpMessage() {
     quoteDisplay.innerText = "Keep up the great work!";
   }, 3000);
 }
+
+// Open Journal Modal
+document.getElementById("journalButton").addEventListener("click", function() {
+  document.getElementById("journalModal").style.display = "block";
+});
+
+// Close Journal Modal
+function closeJournal() {
+  document.getElementById("journalModal").style.display = "none";
+}
+
+// Save Journal Entry
+function saveJournal() {
+  const entry = document.getElementById("journalEntry").value;
+  const journalLog = document.getElementById("journalLog");
+
+  if (entry) {
+    const newEntry = document.createElement("div");
+    newEntry.classList.add("journal-entry");
+    newEntry.textContent = entry;
+
+    journalLog.appendChild(newEntry);
+    document.getElementById("journalEntry").value = ""; // Clear textarea after saving
+  }
+}
+
+// Toggle "About Me" content visibility
+function toggleAbout() {
+  const aboutContent = document.getElementById("aboutContent");
+  if (aboutContent.style.display === "block") {
+    aboutContent.style.display = "none";
+  } else {
+    aboutContent.style.display = "block";
+  }
+}
+// JavaScript for triggering level-up animation
+function triggerLevelUp() {
+  // Find the level-up popup and XP progress bar
+  const levelUpPopup = document.getElementById('level-up-popup');
+  const xpBar = document.getElementById('xpProgress');
+
+  // Simulate filling up the XP bar (you can replace this with your actual logic)
+  let currentXP = parseFloat(xpBar.style.width);  // Get current XP progress
+  let newXP = currentXP + 10;  // Simulate an XP gain
+  
+  // Update the XP bar width
+  if (newXP >= 100) {
+    newXP = 100; // Cap the XP at 100%
+    levelUpPopup.style.opacity = '1';  // Show the level-up popup
+  }
+  
+  xpBar.style.width = newXP + '%';
+
+  // Trigger the level-up animation
+  levelUpPopup.classList.add('level-up');
+  
+  // Remove the class after animation is done (reset)
+  setTimeout(() => {
+    levelUpPopup.classList.remove('level-up');
+    levelUpPopup.style.opacity = '0'; // Hide the popup again
+  }, 1500);  // Time should match the animation duration
+}
+
+// Example: Trigger level-up when clicking a button or after a certain action
+document.getElementById('some-button').addEventListener('click', triggerLevelUp);
+
+
+// Close the journal modal if the user clicks outside the modal content
+window.onclick = function(event) {
+  const modal = document.getElementById("journalModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};

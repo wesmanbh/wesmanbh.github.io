@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EcoHero - CO₂ Tracker</title>
@@ -9,8 +10,30 @@
 <body>
   <div class="app">
     <header>
+      <div class="header-left">
+        <button id="journalButton">Your Journal</button>
+        <div id="journalModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeJournal()">&times;</span>
+            <h2>Journal Entry</h2>
+            <textarea id="journalEntry" placeholder="Log your actions here..."></textarea>
+            <button onclick="saveJournal()">Save Entry</button>
+            <div id="journalLog"></div>
+          </div>
+        </div>
+      </div>
+     
       <h1>🌍 EcoHero - Save the Planet, Earn XP</h1>
       <p>Take small actions, earn XP, and unlock awesome rewards!</p>
+
+      <div class="header-right">
+        <div id="aboutMe" class="about-me">
+          <button onclick="toggleAbout()">About Me</button>
+          <div id="aboutContent" class="about-content">
+            <p>Our mission is to help the planet by encouraging small, sustainable actions that lead to big changes. Join us in reducing CO₂ emissions, one step at a time!</p>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section class="stats">
@@ -47,7 +70,7 @@
             <button onclick="logTask('vanpool')">Vanpool: CO₂ Saved: 8kg, XP: 25</button>
           </div>
         </div>
-  
+ 
         <div id="daily-life" class="category">
           <h2>🏠 Daily Life</h2>
           <div class="tasks">
@@ -65,7 +88,7 @@
             <button onclick="logTask('waterSaving')">Water-Saving Devices: CO₂ Saved: 1kg, XP: 6</button>
           </div>
         </div>
-  
+ 
         <div id="sustainability" class="category">
           <h2>🌱 Sustainability</h2>
           <div class="tasks">
@@ -84,7 +107,7 @@
           </div>
         </div>
       </main>
-  
+ 
 
     <section id="motivation" class="motivation">
       <h2>💬 Motivation</h2>
@@ -92,6 +115,11 @@
     </section>
   </div>
 
+  <div id="level-up-popup" class="level-up-popup">
+    Level Up!
+  </div>
+  
+  
 
   <script src="code.js"></script>
 </body>
