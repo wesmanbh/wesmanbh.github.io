@@ -10,11 +10,30 @@ const xpToNextLevelDisplay = document.getElementById('xpToNextLevel');
 const xpProgress = document.getElementById('xpProgress');
 const quoteDisplay = document.getElementById('quote');
 
+document.getElementById("completeChallengeButton").addEventListener("click", function() {
+  completeDailyChallenge();
+});
+
+function completeDailyChallenge() {
+  const xpEarned = 1000;
+
+  totalXP += xpEarned;
+
+  if (totalXP >= xpToNextLevel) {
+    currentLevel++;
+    totalXP -= xpToNextLevel;
+    xpToNextLevel = Math.floor(xpToNextLevel * 1.5); 
+    updateLevelUpMessage();
+  }
+
+  updateStats();
+  updateProgressBar();
+}
+
 function logTask(task) {
   let co2Saved = 0;
   let xpEarned = 0;
 
-  // CO₂ savings and XP for each task
   const taskData = {
     bike: { co2: 2, xp: 10 },
     carpool: { co2: 3, xp: 15 },
@@ -57,11 +76,9 @@ function logTask(task) {
   co2Saved = taskData[task].co2;
   xpEarned = taskData[task].xp;
 
-
   totalCO2Saved += co2Saved;
   totalXP += xpEarned;
 
-  // Level up system
   if (totalXP >= xpToNextLevel) {
     currentLevel++;
     totalXP -= xpToNextLevel;
@@ -78,7 +95,7 @@ function updateStats() {
   xpDisplay.innerText = totalXP;
   levelDisplay.innerText = currentLevel;
   xpToNextLevelDisplay.innerText = xpToNextLevel;
-  
+
   const treesSaved = Math.floor(totalCO2Saved / 25);
   document.getElementById('treesSavedDisplay').innerText = `You have saved ${treesSaved} trees!🌲`;
 }
@@ -126,6 +143,7 @@ function toggleAbout() {
     aboutContent.style.display = "block";
   }
 }
+
 // JavaScript for triggering level-up animation
 function triggerLevelUp() {
   const levelUpPopup = document.getElementById('level-up-popup');
@@ -151,7 +169,7 @@ function triggerLevelUp() {
 
 document.getElementById('some-button').addEventListener('click', triggerLevelUp);
 
-
+// Close modal when clicking outside
 window.onclick = function(event) {
   const modal = document.getElementById("journalModal");
   if (event.target === modal) {

@@ -31,6 +31,16 @@
           <button onclick="toggleAbout()">About Me</button>
           <div id="aboutContent" class="about-content">
             <p>Our mission is to help the planet by encouraging small, sustainable actions that lead to big changes. Join us in reducing CO₂ emissions, one step at a time!</p>
+            <p>Info:</p>
+            <li>Track CO₂ savings from your transportation and lifestyle choices.</li>
+                <li>Earn XP for making sustainable choices like biking, carpooling, and more.</li>
+                <li>Level up your profile by earning XP with each challenge you complete.</li>
+                <li>View your progress and achievements, including trees saved.</li>
+                <li>Access daily challenges to help you reduce your carbon footprint.</li>
+                <li>Save journal entries to track your sustainable journey.</li>
+                <li>View your XP progress with a visually interactive progress bar.</li>
+                <li>Participate in a fun, engaging, and rewarding sustainability game!</li>
+                <p>Click "About Me" again to close</p>
           </div>
         </div>
       </div>
@@ -110,7 +120,20 @@
           </div>
         </div>
       </main>
- 
+
+    <!-- Daily Environmental Challenges -->
+    <section id="dailyChallenges" class="stat-box">
+      <h2>Daily Environmental Challenges +1000XP</h2>
+      <select id="dailyChallengesDropdown">
+        <option value="">Select a challenge...</option>
+        <option value="plantTree">Plant a Tree</option>
+        <option value="reduceWaste">Reduce Household Waste by 10%</option>
+        <option value="usePublicTransport">Use Public Transport for the Day</option>
+        <option value="useSolarEnergy">Use Solar Power for the Day</option>
+        <option value="volunteerCleanup">Volunteer for a Local Clean-Up</option>
+      </select>
+      <button onclick="completeDailyChallenge()">Complete Challenge</button>
+    </section>
 
     <section id="motivation" class="motivation">
       <h2>💬 Motivation</h2>
@@ -122,8 +145,6 @@
     Level Up!
   </div>
   
-  
-
   <script src="code.js"></script>
 </body>
 </html>
