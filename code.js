@@ -10,9 +10,12 @@ const xpToNextLevelDisplay = document.getElementById('xpToNextLevel');
 const xpProgress = document.getElementById('xpProgress');
 const quoteDisplay = document.getElementById('quote');
 
-document.getElementById("completeChallengeButton").addEventListener("click", function() {
-  completeDailyChallenge();
-});
+const challengeBtn = document.getElementById("completeChallengeButton");
+if (challengeBtn) {
+  challengeBtn.addEventListener("click", function() {
+    completeDailyChallenge();
+  });
+}
 
 function completeDailyChallenge() {
   const xpEarned = 1000;
