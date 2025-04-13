@@ -1,15 +1,66 @@
-<html>
-    <head>
-        <title>Sustainable User Comparison for Responsible Essentials (S.U.C.R.E)</title>
-        <link rel="stylesheet" href="stylesheet.css">
-    </head>
-        <body>
-        <h1>
-            Your Smart Guide to Making Greener Everyday Choices
-        </h1>
-        <h2>
-            Enter product:
-            <input
-            <button>onClick</button>
-        </h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoHero - CO₂ Tracker</title>
+  <link rel="stylesheet" href="stylesheet.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🌍 EcoHero - Save the Planet, Earn XP</h1>
+      <p>Take small actions, earn XP, and unlock awesome rewards!</p>
+    </header>
+
+    <section class="stats">
+      <div class="stat-box">
+        <h2>CO₂ Saved</h2>
+        <p><span id="co2Display">0</span> kg</p>
+      </div>
+      <div class="stat-box">
+        <h2>XP Earned</h2>
+        <p><span id="xpDisplay">0</span> XP</p>
+        <div class="xp-bar">
+          <div id="xpProgress"></div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="category">
+        <h2>🚗 Transportation</h2>
+        <div class="tasks">
+          <button onclick="logTask('bike')">Biked instead of driving</button>
+          <button onclick="logTask('carpool')">Carpooled</button>
+          <button onclick="logTask('bus')">Took public transport</button>
+        </div>
+      </div>
+
+      <div class="category">
+        <h2>🏠 Daily Life</h2>
+        <div class="tasks">
+          <button onclick="logTask('shower')">Shortened shower</button>
+          <button onclick="logTask('lights')">Turned off unnecessary lights</button>
+          <button onclick="logTask('reusable')">Used reusable items</button>
+        </div>
+      </div>
+
+      <div class="category">
+        <h2>🌱 Sustainability</h2>
+        <div class="tasks">
+          <button onclick="logTask('plantTree')">Planted a tree</button>
+          <button onclick="logTask('eatGreen')">Ate plant-based meal</button>
+        </div>
+      </div>
+    </main>
+
+    <section class="motivation">
+      <h2>💬 Motivation</h2>
+      <p id="quote">Keep up the great work!</p>
+    </section>
+  </div>
+
+  <script src="code.js"></script>
+</body>
 </html>
